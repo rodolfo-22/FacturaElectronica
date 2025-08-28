@@ -1,0 +1,19 @@
+spring:
+  sql:
+    init:
+      data:
+  application:
+    name: preparcial
+  mustache:
+    suffix: .html
+  datasource:
+    url: jdbc:postgresql://localhost:5050/adventureworks_db
+    username: postgres
+    password: feliequipo
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        globally_quoted_identifiers: true
+    show-sql: true
