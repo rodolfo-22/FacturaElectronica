@@ -1,44 +1,40 @@
 package org.example.adventureworks.service.Implement;
 
-import org.example.adventureworks.exceptions.CustomerNotFoundException;
-import org.example.adventureworks.models.dto.NewCustomerDTO;
+import lombok.AllArgsConstructor;
+import org.example.adventureworks.models.dto.Request.CustomersCreateRequest;
+import org.example.adventureworks.models.dto.Response.CustomerResponse;
 import org.example.adventureworks.models.entities.Customers;
 import org.example.adventureworks.repository.CustomersRepository;
 import org.example.adventureworks.service.CustomerService;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.example.adventureworks.utils.mappers.CustomerMappers;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.UUID;
 
 @Service
+@AllArgsConstructor
 public class CustomersImpl implements CustomerService {
-
-    @Autowired
-    private CustomersRepository customersRepository;
+    //Inyeccion de dependencias
+    //La propiedad es final para asegurar que no cambie despues de la inyeccion
+    //es decir, si alguien intenta reasignar el repositorio, no podra hacerlo
+    //por ejemplo customersRepository = null; //Esto causaria un error de compilacion
+    private final CustomersRepository customersRepository;
 
 
     @Override
-    public String NewCustomer(NewCustomerDTO newCustomerDTO) {
-        Customers customer = new Customers();
-        customer.setName(newCustomerDTO.getName());
-        customer.setSurname(newCustomerDTO.getSurname());
-        customer.setEmail(newCustomerDTO.getEmail());
-        customer.setAddress(newCustomerDTO.getAddress());
-        customer.setPhone(newCustomerDTO.getPhone());
+    public CustomerResponse save(CustomersCreateRequest newCustomer){
 
-        customersRepository.save(customer);
-        return "Cliente creado exitosamente";
+        return CustomerMappers.ToDTO(customersRepository.save(CustomerMappers.ToEntityCreate(newCustomer)));
     }
 
     @Override
-    public Customers FindbyEmail(String email) {
-        return customersRepository.findByEmail(email).orElseThrow(() -> new CustomerNotFoundException("Cliente con email " + email + " no encontrado"));
+    public CustomerResponse FindbyEmail(String email) {
+        return null;
     }
 
     @Override
     public List<Customers> GetAllCustomers() {
-        return null;
+        return customersRepository.findAll();
     }
 
 }

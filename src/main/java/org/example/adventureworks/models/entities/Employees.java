@@ -3,17 +3,19 @@ package org.example.adventureworks.models.entities;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
 import java.util.UUID;
 
-@Entity
-@Table(name = "employees")
 @Data
-@AllArgsConstructor
+@Entity
+@Builder
 @NoArgsConstructor
+@AllArgsConstructor
+@Table(name = "employees")
 public class Employees {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)

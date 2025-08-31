@@ -2,6 +2,7 @@ package org.example.adventureworks.models.entities;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.validation.annotation.Validated;
@@ -10,9 +11,9 @@ import java.util.UUID;
 
 @Data
 @Entity
-@Validated
-@AllArgsConstructor
+@Builder
 @NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "SalesDetails")
 public class SalesDetails {
     @Id

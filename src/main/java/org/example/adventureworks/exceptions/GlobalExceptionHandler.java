@@ -1,6 +1,6 @@
 package org.example.adventureworks.exceptions;
 
-import org.example.adventureworks.models.dto.ErrorResponse;
+import org.example.adventureworks.models.dto.Response.ErrorResponse;
 import org.example.adventureworks.utils.ResponseBuilderUtil;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.http.HttpStatus;
