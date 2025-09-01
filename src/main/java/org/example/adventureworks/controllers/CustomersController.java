@@ -1,11 +1,10 @@
 package org.example.adventureworks.controllers;
 
 import jakarta.validation.Valid;
-import org.example.adventureworks.models.dto.Request.CustomerUpdateResquest;
-import org.example.adventureworks.models.dto.Request.CustomersCreateRequest;
-import org.example.adventureworks.models.dto.Response.CustomerResponse;
+import org.example.adventureworks.models.dto.Request.customer.CustomerUpdateResquest;
+import org.example.adventureworks.models.dto.Request.customer.CustomersCreateRequest;
+import org.example.adventureworks.models.dto.Response.customer.CustomerResponse;
 import org.example.adventureworks.models.dto.Response.GeneralResponse;
-import org.example.adventureworks.models.entities.Customers;
 import org.example.adventureworks.service.CustomerService;
 import org.example.adventureworks.utils.ResponseBuilderUtil;
 import org.springframework.beans.factory.annotation.Autowired;

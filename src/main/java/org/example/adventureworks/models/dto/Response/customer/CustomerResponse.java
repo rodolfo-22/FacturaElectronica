@@ -1,4 +1,4 @@
-package org.example.adventureworks.models.dto.Response;
+package org.example.adventureworks.models.dto.Response.customer;
 
 import lombok.Builder;
 import lombok.Data;

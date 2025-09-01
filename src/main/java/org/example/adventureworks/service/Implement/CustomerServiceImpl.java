@@ -2,10 +2,9 @@ package org.example.adventureworks.service.Implement;
 
 import lombok.AllArgsConstructor;
 import org.example.adventureworks.exceptions.CustomerNotFoundException;
-import org.example.adventureworks.models.dto.Request.CustomerUpdateResquest;
-import org.example.adventureworks.models.dto.Request.CustomersCreateRequest;
-import org.example.adventureworks.models.dto.Response.CustomerResponse;
-import org.example.adventureworks.models.entities.Customers;
+import org.example.adventureworks.models.dto.Request.customer.CustomerUpdateResquest;
+import org.example.adventureworks.models.dto.Request.customer.CustomersCreateRequest;
+import org.example.adventureworks.models.dto.Response.customer.CustomerResponse;
 import org.example.adventureworks.repository.CustomersRepository;
 import org.example.adventureworks.service.CustomerService;
 import org.example.adventureworks.utils.mappers.CustomerMappers;
@@ -15,7 +14,7 @@ import java.util.List;
 
 @Service
 @AllArgsConstructor
-public class CustomersImpl implements CustomerService {
+public class CustomerServiceImpl implements CustomerService {
     //Inyeccion de dependencias
     //La propiedad es final para asegurar que no cambie despues de la inyeccion
     //es decir, si alguien intenta reasignar el repositorio, no podra hacerlo

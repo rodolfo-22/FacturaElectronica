@@ -1,4 +1,4 @@
-package org.example.adventureworks.models.dto.Request;
+package org.example.adventureworks.models.dto.Request.customer;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.Builder;

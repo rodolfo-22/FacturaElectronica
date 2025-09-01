@@ -1,4 +1,4 @@
-package org.example.adventureworks.models.dto.Request;
+package org.example.adventureworks.models.dto.Response.customer;
 
 import lombok.Builder;
 import lombok.Data;
@@ -7,7 +7,7 @@ import java.util.UUID;
 
 @Data
 @Builder
-public class CustomerUpdateResquest {
+public class CustomerUpdateResponse {
     private UUID id;
     private String name;
     private String surname;

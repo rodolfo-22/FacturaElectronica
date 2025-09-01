@@ -11,6 +11,11 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import java.util.List;
 
+// El GlobalExceptionHandler maneja las excepciones de toda la aplicación
+// y devuelve respuestas HTTP adecuadas con mensajes de error.
+// La anotación @RestControllerAdvice indica que esta clase maneja excepciones
+// para todos los controladores REST en la aplicación.
+// En resumen son errores personalizados para manejar excepciones(errores) comunes
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
@@ -26,13 +31,20 @@ public class GlobalExceptionHandler {
         return ResponseBuilderUtil.buildErrorResponse(e, HttpStatus.NOT_FOUND, e.getMessage());
     }
 
-    // Cuando falla una búsqueda general
+    // Cuando un rol no existe
+    @ExceptionHandler(RoleNotFoundException.class)
+    public ResponseEntity<ErrorResponse> handleRoleNotFound(RoleNotFoundException e) {
+        return ResponseBuilderUtil.buildErrorResponse(e, HttpStatus.NOT_FOUND, e.getMessage());
+    }
+
+
+    // Cuando falla una búsqueda general de cualquier entidad
     @ExceptionHandler(EntityNotFoundException.class)
     public ResponseEntity<ErrorResponse> handleEntityNotFound(EntityNotFoundException e) {
         return ResponseBuilderUtil.buildErrorResponse(e, HttpStatus.NOT_FOUND, e.getMessage());
     }
 
-    // Cuando falla validación de DTOs con @NotBlank, @NotNull, etc.
+    // Cuando falla validación de DTOs con @NotBlank, @NotNull, etc, de cualquier entidad
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<ErrorResponse> handleValidationErrors(MethodArgumentNotValidException e) {
         List<String> errors = e.getFieldErrors().stream()
@@ -42,7 +54,7 @@ public class GlobalExceptionHandler {
         return ResponseBuilderUtil.buildErrorResponse(e, HttpStatus.BAD_REQUEST, errors);
     }
 
-    // Manejo genérico de cualquier otro error
+    // Manejo genérico de cualquier otro error de cualquier entidad
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ErrorResponse> handleGeneric(Exception e) {
         return ResponseBuilderUtil.buildErrorResponse(e, HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage());
