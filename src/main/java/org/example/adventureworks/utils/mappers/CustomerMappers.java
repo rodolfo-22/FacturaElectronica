@@ -1,5 +1,6 @@
 package org.example.adventureworks.utils.mappers;
 
+import org.example.adventureworks.models.dto.Request.CustomerUpdateResquest;
 import org.example.adventureworks.models.dto.Request.CustomersCreateRequest;
 import org.example.adventureworks.models.dto.Response.CustomerResponse;
 import org.example.adventureworks.models.entities.Customers;
@@ -29,6 +30,18 @@ public class CustomerMappers {
                 .email(customer.getEmail())
                 .address(customer.getAddress())
                 .phone(customer.getPhone())
+                .build();
+    }
+
+    //Para modificar un cliente
+    public static Customers ToEntityUpdate(CustomerUpdateResquest updatedCustomer){
+        return Customers.builder()
+                .id(updatedCustomer.getId())
+                .name(updatedCustomer.getName())
+                .surname(updatedCustomer.getSurname())
+                .email(updatedCustomer.getEmail())
+                .address(updatedCustomer.getAddress())
+                .phone(updatedCustomer.getPhone())
                 .build();
     }
 
