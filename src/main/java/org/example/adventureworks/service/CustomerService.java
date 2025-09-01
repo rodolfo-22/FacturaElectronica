@@ -11,6 +11,7 @@ public interface CustomerService {
     CustomerResponse save(CustomersCreateRequest newCustomer);
     CustomerResponse FindbyEmail(String email);
     CustomerResponse Update(CustomerUpdateResquest updatedCustomer);
-    List<Customers> GetAllCustomers();
+    String delete(String email);
+    List<CustomerResponse> GetAllCustomers();
 
 }

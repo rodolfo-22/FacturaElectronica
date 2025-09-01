@@ -25,6 +25,9 @@ public class CustomersImpl implements CustomerService {
 
     @Override
     public CustomerResponse save(CustomersCreateRequest newCustomer){
+        //Verificamos si el cliente ya existe por su email
+        if(!customersRepository.findByEmail(newCustomer.getEmail()).isEmpty())
+            throw new RuntimeException("El cliente con el correo: " + newCustomer.getEmail() + " ya existe");
 
         return CustomerMappers.ToDTO(customersRepository.save(CustomerMappers.ToEntityCreate(newCustomer)));
     }
@@ -40,7 +43,7 @@ public class CustomersImpl implements CustomerService {
     public CustomerResponse Update(CustomerUpdateResquest updatedCustomer) {
         if(customersRepository.findByEmail(updatedCustomer.getEmail()).isEmpty())
             throw new CustomerNotFoundException("Cliente no encontrado con el correo: " + updatedCustomer.getEmail());
-        
+
         //Asignamos el id del cliente encontrado al cliente que vamos a actualizar
         updatedCustomer.setId(customersRepository.findByEmail(updatedCustomer.getEmail()).get().getId());
 
@@ -48,8 +51,17 @@ public class CustomersImpl implements CustomerService {
     }
 
     @Override
-    public List<Customers> GetAllCustomers() {
-        return customersRepository.findAll();
+    public String delete(String email) {
+        if(customersRepository.findByEmail(email).isEmpty())
+            throw new CustomerNotFoundException("Cliente no encontrado con el correo: " + email);
+
+        customersRepository.delete(customersRepository.findByEmail(email).get());
+        return "Se ha eliminado el cliente con el correo: " + email;
+    }
+
+    @Override
+    public List<CustomerResponse> GetAllCustomers() {
+        return CustomerMappers.ToDTOList(customersRepository.findAll()) ;
     }
 
 }

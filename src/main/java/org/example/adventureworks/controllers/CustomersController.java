@@ -38,15 +38,21 @@ public class CustomersController {
     }
 
     @GetMapping("/all-customers")
-    public ResponseEntity<java.util.List<Customers>> getAllCustomers() {
-        List<Customers> customers = customerService.GetAllCustomers();
-        return ResponseEntity.ok(customers);
+    public ResponseEntity<GeneralResponse> getAllCustomers() {
+        List<CustomerResponse> customers = customerService.GetAllCustomers();
+        return ResponseBuilderUtil.buildResponse("Lista de usuarios", HttpStatus.OK, customers);
     }
 
     @PutMapping("/update")
     public ResponseEntity<GeneralResponse> updateCustomer(@Valid @RequestBody CustomerUpdateResquest customer) {
         CustomerResponse updatedCustomer = customerService.Update(customer);
         return ResponseBuilderUtil.buildResponse("Usuario actualizado correctamente", HttpStatus.OK, updatedCustomer);
+    }
+
+    @DeleteMapping("/delete/{email}")
+    public ResponseEntity<GeneralResponse> deleteCustomer(@PathVariable String email) {
+        String message = customerService.delete(email);
+        return ResponseBuilderUtil.buildResponse(message, HttpStatus.OK, null);
     }
 
 }

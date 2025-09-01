@@ -5,6 +5,9 @@ import org.example.adventureworks.models.dto.Request.CustomersCreateRequest;
 import org.example.adventureworks.models.dto.Response.CustomerResponse;
 import org.example.adventureworks.models.entities.Customers;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 //La clase Mapper se utiliza para convertir entre diferentes tipos de objetos, como DTOs y entidades.
 //En este caso, se puede utilizar para convertir entre Customers y customerResponse DTOs a Customers entidades.
 
@@ -45,4 +48,10 @@ public class CustomerMappers {
                 .build();
     }
 
+    public static List<CustomerResponse> ToDTOList(List<Customers> allUCustomers) {
+        //la propiedad stream() convierte la lista en un flujo de datos
+        //map() aplica la funcion ToDTO a cada elemento del flujo
+        //collect() convierte el flujo de datos de nuevo en una lista
+        return allUCustomers.stream().map(CustomerMappers::ToDTO).collect(Collectors.toList());
+    }
 }
