@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import org.example.adventureworks.models.dto.Request.role.RoleCreateRequest;
 import org.example.adventureworks.models.dto.Request.role.RoleUpdateRequest;
 import org.example.adventureworks.models.dto.Response.role.RoleResponse;
+import org.example.adventureworks.models.entities.Role;
 import org.example.adventureworks.repository.RoleRepository;
 import org.example.adventureworks.service.RoleService;
 import org.example.adventureworks.utils.mappers.RoleMappers;
@@ -54,5 +55,10 @@ public class RoleServiceImpl implements RoleService {
     @Override
     public List<RoleResponse> findAllRoles() {
         return RoleMappers.ToDTOList(roleRepository.findAll());
+    }
+
+    @Override
+    public Role findRoleEntityByName(String roleName) {
+        return roleRepository.findByRole(roleName).orElseThrow(()-> new RuntimeException("Rol no encontrado"));
     }
 }

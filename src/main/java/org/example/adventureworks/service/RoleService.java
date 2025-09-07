@@ -13,5 +13,6 @@ public interface RoleService {
     String delete(String name);
     RoleResponse findRoleByName(String roleName);
     List<RoleResponse> findAllRoles();
+    Role findRoleEntityByName(String roleName);
 
 }

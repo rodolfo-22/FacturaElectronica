@@ -59,4 +59,11 @@ public class GlobalExceptionHandler {
     public ResponseEntity<ErrorResponse> handleGeneric(Exception e) {
         return ResponseBuilderUtil.buildErrorResponse(e, HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage());
     }
+
+    //Cuando un empleado no existe
+    @ExceptionHandler(EmployeeNotFoundException.class)
+    public ResponseEntity<ErrorResponse> handleEmployeeNotFound(EmployeeNotFoundException e) {
+        return ResponseBuilderUtil.buildErrorResponse(e, HttpStatus.NOT_FOUND, e.getMessage());
+    }
+
 }

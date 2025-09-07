@@ -3,6 +3,7 @@ package org.example.adventureworks.models.dto.Request.employee;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Builder;
 import lombok.Data;
+import org.example.adventureworks.models.entities.Role;
 
 import java.util.UUID;
 

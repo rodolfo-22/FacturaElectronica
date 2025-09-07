@@ -9,14 +9,16 @@ import java.util.UUID;
 @Data
 @Builder
 public class EmployeeCreateRequest {
-    @NotBlank
+    @NotBlank(message = "El nombre no puede estar vacío")
     private String name;
-    @NotBlank
+    @NotBlank(message = "El apellido no puede estar vacío")
     private String surname;
-    @NotBlank
+    @NotBlank(message = "El email no puede estar vacío")
     private String email;
-    @NotBlank
+    @NotBlank(message = "La contraseña no puede estar vacía")
     private String password;
+    @NotBlank(message = "El rol no puede estar vacío")
+    private String role;
     private String address;
     private String phone;
 }

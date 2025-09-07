@@ -5,11 +5,12 @@ import org.example.adventureworks.models.dto.Request.employee.EmployeeUpdateRequ
 import org.example.adventureworks.models.dto.Response.employee.EmployeeResponse;
 
 import java.util.List;
+import java.util.UUID;
 
 public interface EmployeeService {
     EmployeeResponse save(EmployeeCreateRequest request);
-    EmployeeResponse getById(Long id);
+    EmployeeResponse getByEmail(String email);
     EmployeeResponse update(EmployeeUpdateRequest request);
-    String delete(Long id);
+    String delete(String email);
     List<EmployeeResponse> getAll();
 }

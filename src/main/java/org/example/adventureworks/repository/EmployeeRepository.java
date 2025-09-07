@@ -8,5 +8,6 @@ import java.util.Optional;
 import java.util.UUID;
 @Repository
 public interface EmployeeRepository extends JpaRepository<Employees, UUID> {
-    Optional<Employees> findByName(String name);
+
+    Optional<Employees> findByEmail(String email);
 }

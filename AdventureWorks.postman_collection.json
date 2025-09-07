@@ -1,0 +1,408 @@
+{
+	"info": {
+		"_postman_id": "a45966ad-966e-44a9-a208-759c4d3af1ba",
+		"name": "AdventureWorks",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25210500"
+	},
+	"item": [
+		{
+			"name": "Customer",
+			"item": [
+				{
+					"name": "Add_Customer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Andrés\",\n  \"surname\": \"Lopez\",\n  \"email\": \"andreslopez@gmail.com\",\n  \"address\": \"Col. Miramonte, San Salvador\",\n  \"phone\": \"7001-2234\"\n}\n\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/customers/new-customer",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"customers",
+								"new-customer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find_Custumer_by_email",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/customers/by-email/andreslopez@gmail.com",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"customers",
+								"by-email",
+								"andreslopez@gmail.com"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "All-Customers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/customers/all-customers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"customers",
+								"all-customers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update_customer",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Rafael\",\n    \"surname\": \"Torso\",\n    \"email\": \"rafator@gmail.com\",\n    \"address\": \"El espino, 42 av.Rosa azul\",\n    \"phone\": \"7654-5232\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/customers/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"customers",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete_customer",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"dd476230-eacf-4264-b668-61d3240f0696\",\n    \"name\": \"Sevastian\",\n    \"surname\": \"Aguilar\",\n    \"email\": \"AguilaSevas@gmail.com\",\n    \"address\": \"El espino, 10 av.Rosa azul\",\n    \"phone\": \"7334-5672\"\n}\n"
+						},
+						"url": {
+							"raw": "http://localhost:8080/customers/delete/rafator@gmail.com",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"customers",
+								"delete",
+								"rafator@gmail.com"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Role",
+			"item": [
+				{
+					"name": "Add_rol",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"ADMIN\",\n  \"description\": \"Otra direccion mas \"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/roles/new-role",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"roles",
+								"new-role"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find_rol",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"USER\",\n  \"description\": \"Rol de usuario estándar\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/roles/by-name/USER",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"roles",
+								"by-name",
+								"USER"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update_rol",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"USER\",\n  \"description\": \"Rol de usuario estándar para sepillar los baños\"\n}\n\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/roles/update-role",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"roles",
+								"update-role"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete_rol",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/roles/delete/Elquenohacenada",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"roles",
+								"delete",
+								"Elquenohacenada"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "All-Roles",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/roles/all-roles",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"roles",
+								"all-roles"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Employee",
+			"item": [
+				{
+					"name": "new-employee",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Carlos Andrés\",\n    \"surname\": \"Hernández Mejía\",\n    \"role\": \"USER\",\n    \"email\": \"carlosandres@yahoo.com\",\n    \"password\": \"UserSafe789!\",\n    \"address\": \"Barrio Abajo, Tegucigalpa\",\n    \"phone\": \"7234-5621\"\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/employees/new-employee",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"employees",
+								"new-employee"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "find-employee",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/employees/by-email/carlosandres@yahoo.com",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"employees",
+								"by-email",
+								"carlosandres@yahoo.com"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "all-employee",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Carlos Andrés\",\n    \"surname\": \"Hernández Mejía\",\n    \"role\": \"USER\",\n    \"email\": \"carlosandres@yahoo.com\",\n    \"password\": \"UserSafe789!\",\n    \"address\": \"Barrio Abajo, Tegucigalpa\",\n    \"phone\": \"7234-5621\"\n  }"
+						},
+						"url": {
+							"raw": "http://localhost:8080/employees/all-employees",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"employees",
+								"all-employees"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Carlos Andrés\",\n    \"surname\": \"Hernández Mejía\",\n    \"role\": \"ADMIN\",\n    \"email\": \"carlosandres@yahoo.com\",\n    \"password\": \"UserSafe789!\",\n    \"address\": \"Barrio Abajo, Tegucigalpa\",\n    \"phone\": \"7234-5621\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/employees/update-employee",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"employees",
+								"update-employee"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/employees/delete/carlosandres@yahoo.com",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"employees",
+								"delete",
+								"carlosandres@yahoo.com"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
