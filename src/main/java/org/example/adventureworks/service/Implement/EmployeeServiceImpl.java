@@ -39,7 +39,8 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public EmployeeResponse getByEmail(String email) {
-        return EmployeeMappers.ToDTO(employeeRepository.findByEmail(email).orElseThrow(()-> new EmployeeNotFoundException("Empleado no encontrado" + email)) );
+        return EmployeeMappers.ToDTO(employeeRepository.findByEmail(email).orElseThrow(()->
+                new EmployeeNotFoundException("Empleado no encontrado" + email)) );
     }
 
     @Override
