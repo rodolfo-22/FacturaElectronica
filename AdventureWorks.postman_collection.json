@@ -403,6 +403,138 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "Qr",
+			"item": [
+				{
+					"name": "New-Qr",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"time\": \"2025-09-10T12:00:00Z\",\n  \"active\": true,\n  \"code\": \"QR-2025-TUV654\"\n}\n\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/qrcodes/generate",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"qrcodes",
+								"generate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find-by-code",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/qrcodes/find-by-code/QR-2025-MNO456",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"qrcodes",
+								"find-by-code",
+								"QR-2025-MNO456"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateQr",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"92b5ea46-84d4-485b-8dab-bbf1a41e3a93\",  \n    \"time\": \"2026-09-08T16:45:00.000+00:00\",\n    \"active\": false,\n    \"code\": \"QR-2025-MNO456\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/qrcodes/updateQr",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"qrcodes",
+								"updateQr"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AllQrs",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": \"2\",  \n  \"time\": \"2025-09-10T12:00:00Z\",\n  \"active\": true,\n  \"code\": \"QR-2025-TUV654\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/qrcodes/all-qrcodes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"qrcodes",
+								"all-qrcodes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/qrcodes/delete/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"qrcodes",
+								"delete",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	]
 }
