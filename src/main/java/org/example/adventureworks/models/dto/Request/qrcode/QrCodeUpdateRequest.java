@@ -1,6 +1,7 @@
 package org.example.adventureworks.models.dto.Request.qrcode;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.Builder;
 import lombok.Data;
 
@@ -11,10 +12,13 @@ import java.util.UUID;
 @Builder
 public class QrCodeUpdateRequest {
     private UUID id;
-    @NotBlank(message = "El código no puede estar vacío")
+
+    @NotNull(message = "La fecha no puede ser nula")
     private Date time;
-    @NotBlank
+
     private boolean active;
+
     @NotBlank(message = "El código no puede estar vacío")
     private String code;
+
 }

@@ -13,10 +13,9 @@ import java.util.UUID;
 @Data
 @Entity
 @Builder
-@Validated
-@AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "qr_codes")
+@AllArgsConstructor
+@Table(name = "qrcodes")
 public class QrCode {
     @Id
     @GeneratedValue (strategy = GenerationType.UUID)
@@ -25,6 +24,7 @@ public class QrCode {
     private Date time;
     private boolean active;
     private String code;
+
     //Relacion 1:1 con sales
     @OneToOne(mappedBy = "qr_code")
     private Sales sales;
