@@ -11,7 +11,7 @@ import java.util.UUID;
 public interface SalesService {
     //Operaciones basicas de CRUD
     SalesResponse newSale(SalesCreateRequest saleInfo);
-    SalesResponse findById(UUID id);
+    SalesResponse findBySaleId(UUID id);
     SalesResponse updateSale(SalesUpdateRequest saleInfo);
     String deleteSale(UUID id);
     List<SalesResponse> findAll();

@@ -23,4 +23,6 @@ public class SalesResponse {
     private String journal_entry; // asiento contable-Nacionales o Internacionales o cuentas por cobrar
     private String Proyect; // Proyecto asociado a la venta, equipo de oficina, o construccion,etc
     private String Description; // descripcion de la venta
+    private UUID customersId; // ID del cliente asociado a la venta
+    private String employeesId; // ID del empleado que realizo la venta
 }

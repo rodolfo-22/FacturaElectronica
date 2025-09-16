@@ -6,6 +6,8 @@ import lombok.Builder;
 import lombok.Data;
 
 import java.util.Date;
+import java.util.UUID;
+
 @Data
 @Builder
 public class SalesCreateRequest {
@@ -29,4 +31,6 @@ public class SalesCreateRequest {
     private String journal_entry; // asiento contable-Nacionales o Internacionales o cuentas por cobrar
     private String Proyect; // Proyecto asociado a la venta, equipo de oficina, o construccion,etc
     private String Description; // descripcion de la venta
+    private UUID customer_id; // id del cliente
+    private UUID employee_id; // id del empleado que realizo la venta
 }

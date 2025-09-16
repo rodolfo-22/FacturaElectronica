@@ -23,4 +23,6 @@ public class SalesUpdateRequest {
     private String journal_entry; // asiento contable-Nacionales o Internacionales o cuentas por cobrar
     private String Proyect; // Proyecto asociado a la venta, equipo de oficina, o construccion,etc
     private String Description; // descripcion de la venta
+    private UUID customer_id;
+    private UUID employee_id;
 }

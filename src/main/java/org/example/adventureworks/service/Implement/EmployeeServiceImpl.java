@@ -6,6 +6,7 @@ import org.example.adventureworks.exceptions.EmployeeNotFoundException;
 import org.example.adventureworks.models.dto.Request.employee.EmployeeCreateRequest;
 import org.example.adventureworks.models.dto.Request.employee.EmployeeUpdateRequest;
 import org.example.adventureworks.models.dto.Response.employee.EmployeeResponse;
+import org.example.adventureworks.models.entities.Employees;
 import org.example.adventureworks.models.entities.Role;
 import org.example.adventureworks.repository.EmployeeRepository;
 import org.example.adventureworks.service.EmployeeService;
@@ -14,6 +15,7 @@ import org.example.adventureworks.utils.mappers.EmployeeMappers;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 
 @Service
@@ -68,5 +70,11 @@ public class EmployeeServiceImpl implements EmployeeService {
     public List<EmployeeResponse> getAll() {
 
         return EmployeeMappers.ToDTOList(employeeRepository.findAll());
+    }
+
+    @Override
+    public Employees findEmployeeById(UUID id) {
+        return employeeRepository.findById(id).orElseThrow(()->
+                new EmployeeNotFoundException("Empleado no encontrado con ID: " + id));
     }
 }

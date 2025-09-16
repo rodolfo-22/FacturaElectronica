@@ -11,4 +11,5 @@ public interface CustomersRepository extends JpaRepository<Customers, UUID> {
     //va a devolver un objeto Optional que puede contener un objeto Customers o estar vacio
     //si no encuentra ningun cliente con el email proporcionado
     Optional<Customers> findByEmail(String email);
+    Optional<Customers> findById(UUID id);
 }

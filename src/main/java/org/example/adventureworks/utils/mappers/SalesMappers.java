@@ -3,13 +3,15 @@ package org.example.adventureworks.utils.mappers;
 import org.example.adventureworks.models.dto.Request.sales.SalesCreateRequest;
 import org.example.adventureworks.models.dto.Request.sales.SalesUpdateRequest;
 import org.example.adventureworks.models.dto.Response.sales.SalesResponse;
+import org.example.adventureworks.models.entities.Customers;
+import org.example.adventureworks.models.entities.Employees;
 import org.example.adventureworks.models.entities.Sales;
 
 import java.util.List;
 
 public class SalesMappers {
 
-    public static Sales  ToEntityCreate(SalesCreateRequest salesCreateRequest) {
+    public static Sales  ToEntityCreate(SalesCreateRequest salesCreateRequest, Customers  customers, Employees employees) {
         return Sales.builder()
                 .totalPrice(salesCreateRequest.getTotalPrice())
                 .account_tags(salesCreateRequest.getAccount_tags())
@@ -22,7 +24,10 @@ public class SalesMappers {
                 .sales_team(salesCreateRequest.getSales_team())
                 .journal_entry(salesCreateRequest.getJournal_entry())
                 .Proyect(salesCreateRequest.getProyect())
+                .saleDate(salesCreateRequest.getSaleDate())
                 .Description(salesCreateRequest.getDescription())
+                .customers(customers)
+                .employees(employees)
                 .build();
     }
     public static SalesResponse ToDTO(Sales sales){
@@ -41,9 +46,11 @@ public class SalesMappers {
                 .journal_entry(sales.getJournal_entry())
                 .Proyect(sales.getProyect())
                 .Description(sales.getDescription())
+                .customersId(sales.getCustomers().getId())
+                .employeesId(sales.getEmployees().getName())
                 .build();
     }
-    public static Sales ToEntityUpdate(SalesUpdateRequest updateSales){
+    public static Sales ToEntityUpdate(SalesUpdateRequest updateSales,Customers customers, Employees employe) {
         return Sales.builder()
                 .id(updateSales.getId())
                 .totalPrice(updateSales.getTotalPrice())
@@ -58,6 +65,9 @@ public class SalesMappers {
                 .journal_entry(updateSales.getJournal_entry())
                 .Proyect(updateSales.getProyect())
                 .Description(updateSales.getDescription())
+                .saleDate(updateSales.getSaleDate())
+                .customers(customers)
+                .employees(employe)
                 .build();
     }
 

@@ -5,12 +5,14 @@ import org.example.adventureworks.exceptions.CustomerNotFoundException;
 import org.example.adventureworks.models.dto.Request.customer.CustomerUpdateResquest;
 import org.example.adventureworks.models.dto.Request.customer.CustomersCreateRequest;
 import org.example.adventureworks.models.dto.Response.customer.CustomerResponse;
+import org.example.adventureworks.models.entities.Customers;
 import org.example.adventureworks.repository.CustomersRepository;
 import org.example.adventureworks.service.CustomerService;
 import org.example.adventureworks.utils.mappers.CustomerMappers;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 @AllArgsConstructor
@@ -32,14 +34,14 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public CustomerResponse FindbyEmail(String email) {
+    public CustomerResponse findbyEmail(String email) {
         //como estamos retornando un CustomerResponse, usamos el mapeador ToDTO que convierte de Customers a CustomerResponse
         //el metodo findByEmail retorna un Optional<Customers>, por lo que usamos orElseThrow para lanzar una excepcion si no se encuentra el cliente
         return CustomerMappers.ToDTO(customersRepository.findByEmail(email).orElseThrow(()-> new RuntimeException("Cliente no encontrado")));
     }
 
     @Override
-    public CustomerResponse Update(CustomerUpdateResquest updatedCustomer) {
+    public CustomerResponse update(CustomerUpdateResquest updatedCustomer) {
         if(customersRepository.findByEmail(updatedCustomer.getEmail()).isEmpty())
             throw new CustomerNotFoundException("Cliente no encontrado con el correo: " + updatedCustomer.getEmail());
 
@@ -61,6 +63,11 @@ public class CustomerServiceImpl implements CustomerService {
     @Override
     public List<CustomerResponse> GetAllCustomers() {
         return CustomerMappers.ToDTOList(customersRepository.findAll()) ;
+    }
+
+    @Override
+    public Customers findById(UUID id) {
+        return customersRepository.findById(id).orElseThrow(()-> new CustomerNotFoundException("Cliente no encontrado con el id: " + id));
     }
 
 }
