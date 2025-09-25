@@ -3,6 +3,7 @@ package org.example.adventureworks.models.entities;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.validation.annotation.Validated;
@@ -12,7 +13,7 @@ import java.util.UUID;
 
 @Data
 @Entity
-@Validated
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Table (name = "products")
@@ -28,7 +29,6 @@ public class Products {
     private int stock;
     private String size;
     private String weight;
-    private String category;
     private String model;
     private String description;
     private String imageUrl;

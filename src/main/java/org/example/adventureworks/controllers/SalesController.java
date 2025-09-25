@@ -5,7 +5,7 @@ import org.example.adventureworks.models.dto.Request.sales.SalesCreateRequest;
 import org.example.adventureworks.models.dto.Request.sales.SalesUpdateRequest;
 import org.example.adventureworks.models.dto.Response.GeneralResponse;
 import org.example.adventureworks.models.dto.Response.sales.SalesResponse;
-import org.example.adventureworks.models.entities.Sales;
+
 import org.example.adventureworks.service.SalesService;
 import org.example.adventureworks.utils.ResponseBuilderUtil;
 import org.springframework.beans.factory.annotation.Autowired;

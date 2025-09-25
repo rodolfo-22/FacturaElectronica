@@ -145,7 +145,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"name\": \"ADMIN\",\n  \"description\": \"Otra direccion mas \"\n}\n",
+							"raw": "{\n  \"name\": \"USER\",\n  \"description\": \"Otra direccion mas \"\n}\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -458,6 +458,33 @@
 					"response": []
 				},
 				{
+					"name": "AllQrs",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": \"2\",  \n  \"time\": \"2025-09-10T12:00:00Z\",\n  \"active\": true,\n  \"code\": \"QR-2025-TUV654\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/qrcodes/all-qrcodes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"qrcodes",
+								"all-qrcodes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "UpdateQr",
 					"request": {
 						"method": "PUT",
@@ -487,33 +514,6 @@
 					"response": []
 				},
 				{
-					"name": "AllQrs",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n  \"id\": \"2\",  \n  \"time\": \"2025-09-10T12:00:00Z\",\n  \"active\": true,\n  \"code\": \"QR-2025-TUV654\"\n}"
-						},
-						"url": {
-							"raw": "http://localhost:8080/qrcodes/all-qrcodes",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"qrcodes",
-								"all-qrcodes"
-							]
-						}
-					},
-					"response": []
-				},
-				{
 					"name": "New Request",
 					"request": {
 						"method": "DELETE",
@@ -529,6 +529,324 @@
 								"qrcodes",
 								"delete",
 								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Sales",
+			"item": [
+				{
+					"name": "New-sales",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"totalPrice\": 1250.75,\n  \"saleDate\": \"2025-09-11\",\n  \"account_tags\": \"Empresa Nacional\",\n  \"operation_condition\": \"Crédito\",\n  \"types_of_payment\": \"Transferencia Bancaria\",\n  \"pament_installments\": \"3\",\n  \"treasury_date\": \"2025-09-20T00:00:00Z\",\n  \"payment_due_date\": \"2025-10-20T00:00:00Z\",\n  \"comercial_name\": \"María López\",\n  \"sales_team\": \"Equipo Zona Norte\",\n  \"journal_entry\": \"Cuentas por Cobrar\",\n  \"Proyect\": \"Construcción Residencial\",\n  \"Description\": \"Venta de materiales de construcción para proyecto habitacional\",\n  \"employee_id\":\"fda23b00-2d32-4640-8c37-54762d537343\",\n  \"customer_id\":\"d7fce4c7-7f69-4a2b-b29d-0c85b99fc42d\"\n}\n\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/sales/new-sale",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"sales",
+								"new-sale"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find-sale",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": \"2\",  \n  \"time\": \"2025-09-10T12:00:00Z\",\n  \"active\": true,\n  \"code\": \"QR-2025-TUV654\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/sales/find-by-id/d864a8f5-c534-4e6c-9195-7177e0d8a5d1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"sales",
+								"find-by-id",
+								"d864a8f5-c534-4e6c-9195-7177e0d8a5d1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update-sale",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"d864a8f5-c534-4e6c-9195-7177e0d8a5d1\",\n    \"totalPrice\": 16.75,\n    \"saleDate\": \"2025-09-11\",\n    \"account_tags\": \"Empresa Nacional\",\n    \"operation_condition\": \"Crédito\",\n    \"types_of_payment\": \"Transferencia Bancaria\",\n    \"pament_installments\": \"3\",\n    \"treasury_date\": \"2025-09-20T00:00:00.000+00:00\",\n    \"payment_due_date\": \"2025-10-20T00:00:00.000+00:00\",\n    \"comercial_name\": \"María López\",\n    \"sales_team\": \"Equipo Zona Norte\",\n    \"journal_entry\": \"Cuentas por Cobrar\",\n    \"description\": \"Venta de materiales de construcción para proyecto habitacional\",\n    \"proyect\": \"Construcción Residencial\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/sales/update-sale",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"sales",
+								"update-sale"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete-sale",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/sales/delete-sale/d864a8f5-c534-4e6c-9195-7177e0d8a5d1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"sales",
+								"delete-sale",
+								"d864a8f5-c534-4e6c-9195-7177e0d8a5d1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "all-sales",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": \"2\",  \n  \"time\": \"2025-09-10T12:00:00Z\",\n  \"active\": true,\n  \"code\": \"QR-2025-TUV654\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/sales/all-sales",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"sales",
+								"all-sales"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Category",
+			"item": [
+				{
+					"name": "New-categoty",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"categoryName\":\"Pelotas de futball\",\n    \"description\":\"Pelota para jugar futball echa de cuero para partidos de alto nivel\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/categories/new-category",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"categories",
+								"new-category"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/categories/findByName/Pelotas de futba",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"categories",
+								"findByName",
+								"Pelotas de futba"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/categories/delete-cactegory/3188aa8a-c817-4d6f-8c48-198c21ea3b51",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"categories",
+								"delete-cactegory",
+								"3188aa8a-c817-4d6f-8c48-198c21ea3b51"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "New-product",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"productName\": \"Balón de Fútbol Profesional\",\n  \"productNumber\": \"SPORT-2025-100\",\n  \"color\": \"Blanco y negro\",\n  \"price\": 45.99,\n  \"stock\": 120,\n  \"size\": \"Número 5\",\n  \"weight\": \"430 g\",\n  \"model\": \"FIFA-Approved-2025\",\n  \"description\": \"Balón de fútbol profesional certificado por la FIFA, diseñado para torneos oficiales.\",\n  \"imageUrl\": \"https://mi-tienda.com/images/balon-futbol.png\",\n  \"categoryId\": \"93348a77-9b26-47f3-bf2e-709a86ea74ca\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/products/new-product",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"products",
+								"new-product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find-by-id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"productName\": \"Balón de Fútbol Profesional\",\n  \"productNumber\": \"SPORT-2025-100\",\n  \"color\": \"Blanco y negro\",\n  \"price\": 45.99,\n  \"stock\": 120,\n  \"size\": \"Número 5\",\n  \"weight\": \"430 g\",\n  \"model\": \"FIFA-Approved-2025\",\n  \"description\": \"Balón de fútbol profesional certificado por la FIFA, diseñado para torneos oficiales.\",\n  \"imageUrl\": \"https://mi-tienda.com/images/balon-futbol.png\",\n  \"categoryId\": c1b95e64-9da5-4585-a6c0-70db72fcb1be\"\n}\n"
+						},
+						"url": {
+							"raw": "http://localhost:8080/products/find-by-id/6a53cb8b-ab65-4686-b540-8ffb2b20093e",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"products",
+								"find-by-id",
+								"6a53cb8b-ab65-4686-b540-8ffb2b20093e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find-by-name",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Upadate-product",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"productId\":\"80609ee5-ee78-4fb4-a3fc-f22e21da79a3\",\n    \"productName\": \"Balón de Fútbol Profesional\",\n    \"productNumber\": \"SPORT-2025-100\",\n    \"color\": \"Rosado y verde \",\n    \"price\": 45.99,\n    \"stock\": 120,\n    \"size\": \"Número 5\",\n    \"weight\": \"430 g\",\n    \"model\": \"FIFA-Approved-2025\",\n    \"description\": \"Balón de fútbol profesional certificado por la FIFA, diseñado para torneos oficiales.\",\n    \"imageUrl\": \"https://mi-tienda.com/images/balon-futbol.png\",\n    \"categoryId\": \"bb1214ec-b2c5-4978-864d-888885d436e1\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/products/update-product",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"products",
+								"update-product"
 							]
 						}
 					},

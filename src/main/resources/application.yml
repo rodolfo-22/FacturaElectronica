@@ -12,7 +12,7 @@ spring:
     password: feliequipo
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: create
     properties:
       hibernate:
         globally_quoted_identifiers: true
