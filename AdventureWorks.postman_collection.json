@@ -765,7 +765,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"productName\": \"Balón de Fútbol Profesional\",\n  \"productNumber\": \"SPORT-2025-100\",\n  \"color\": \"Blanco y negro\",\n  \"price\": 45.99,\n  \"stock\": 120,\n  \"size\": \"Número 5\",\n  \"weight\": \"430 g\",\n  \"model\": \"FIFA-Approved-2025\",\n  \"description\": \"Balón de fútbol profesional certificado por la FIFA, diseñado para torneos oficiales.\",\n  \"imageUrl\": \"https://mi-tienda.com/images/balon-futbol.png\",\n  \"categoryId\": \"93348a77-9b26-47f3-bf2e-709a86ea74ca\"\n}\n",
+							"raw": "{\n  \"productName\": \"Balón de Fútbol Profesional\",\n  \"productNumber\": \"SPORT-2025-100\",\n  \"color\": \"Blanco y negro\",\n  \"price\": 45.99,\n  \"stock\": 120,\n  \"size\": \"Número 5\",\n  \"weight\": \"430 g\",\n  \"model\": \"FIFA-Approved-2025\",\n  \"description\": \"Balón de fútbol profesional certificado por la FIFA, diseñado para torneos oficiales.\",\n  \"imageUrl\": \"https://mi-tienda.com/images/balon-futbol.png\",\n  \"categoryId\": \"d3c32b04-8b20-414c-82bb-e69fb0dfd916\"\n}\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -800,7 +800,7 @@
 							"raw": "{\n  \"productName\": \"Balón de Fútbol Profesional\",\n  \"productNumber\": \"SPORT-2025-100\",\n  \"color\": \"Blanco y negro\",\n  \"price\": 45.99,\n  \"stock\": 120,\n  \"size\": \"Número 5\",\n  \"weight\": \"430 g\",\n  \"model\": \"FIFA-Approved-2025\",\n  \"description\": \"Balón de fútbol profesional certificado por la FIFA, diseñado para torneos oficiales.\",\n  \"imageUrl\": \"https://mi-tienda.com/images/balon-futbol.png\",\n  \"categoryId\": c1b95e64-9da5-4585-a6c0-70db72fcb1be\"\n}\n"
 						},
 						"url": {
-							"raw": "http://localhost:8080/products/find-by-id/6a53cb8b-ab65-4686-b540-8ffb2b20093e",
+							"raw": "http://localhost:8080/products/find-by-id/27484b09-0014-4545-b086-cc8722c205f1",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -809,7 +809,7 @@
 							"path": [
 								"products",
 								"find-by-id",
-								"6a53cb8b-ab65-4686-b540-8ffb2b20093e"
+								"27484b09-0014-4545-b086-cc8722c205f1"
 							]
 						}
 					},
@@ -817,9 +817,29 @@
 				},
 				{
 					"name": "Find-by-name",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"productName\": \"Balón de Fútbol Profesional\",\n  \"productNumber\": \"SPORT-2025-100\",\n  \"color\": \"Blanco y negro\",\n  \"price\": 45.99,\n  \"stock\": 120,\n  \"size\": \"Número 5\",\n  \"weight\": \"430 g\",\n  \"model\": \"FIFA-Approved-2025\",\n  \"description\": \"Balón de fútbol profesional certificado por la FIFA, diseñado para torneos oficiales.\",\n  \"imageUrl\": \"https://mi-tienda.com/images/balon-futbol.png\",\n  \"categoryId\": \"bf181af0-3ae7-4dfa-8ab8-3f686cdee691\"\n}\n"
+						},
+						"url": {
+							"raw": "http://localhost:8080/products/find-by-name/Balón de Fútbol Profesional",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"products",
+								"find-by-name",
+								"Balón de Fútbol Profesional"
+							]
+						}
 					},
 					"response": []
 				},
@@ -847,6 +867,31 @@
 							"path": [
 								"products",
 								"update-product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete-product",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"productName\": \"Balón de Fútbol Profesional\",\n  \"productNumber\": \"SPORT-2025-100\",\n  \"color\": \"Blanco y negro\",\n  \"price\": 45.99,\n  \"stock\": 120,\n  \"size\": \"Número 5\",\n  \"weight\": \"430 g\",\n  \"model\": \"FIFA-Approved-2025\",\n  \"description\": \"Balón de fútbol profesional certificado por la FIFA, diseñado para torneos oficiales.\",\n  \"imageUrl\": \"https://mi-tienda.com/images/balon-futbol.png\",\n  \"categoryId\": c1b95e64-9da5-4585-a6c0-70db72fcb1be\"\n}\n"
+						},
+						"url": {
+							"raw": "http://localhost:8080/products/delete-product/e688fe3a-370f-40cd-9474-029ee3d12e8e",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"products",
+								"delete-product",
+								"e688fe3a-370f-40cd-9474-029ee3d12e8e"
 							]
 						}
 					},

@@ -15,6 +15,6 @@ public interface ProductsServices {
     List<ProductsResponse> getAllProducts();
     
     //Cosultas especiales
-    ProductsResponse getProduct(UUID productId);
+    ProductsResponse getProductByName(String productName);
     
 }

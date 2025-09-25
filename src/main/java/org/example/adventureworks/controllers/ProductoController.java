@@ -35,5 +35,15 @@ public class ProductoController {
     public ResponseEntity<GeneralResponse> updateProduct(@Valid @RequestBody ProductsUpdateRequest productInfo){
         return ResponseBuilderUtil.buildResponse("Producto actualizado correctamente", HttpStatus.OK, productService.updateProduct(productInfo));
     }
+    @DeleteMapping("/delete-product/{id}")
+    public ResponseEntity<GeneralResponse> deleteProduct(@PathVariable UUID id){
+        String message = productService.deleteProduct(id);
+        return ResponseBuilderUtil.buildResponse(message, HttpStatus.OK, null);
+    }
+
+    @GetMapping("/find-by-name/{name}")
+    public ResponseEntity<GeneralResponse> findByName(@PathVariable String name){
+        return ResponseBuilderUtil.buildResponse("Producto encontrado", HttpStatus.OK, productService.getProductByName(name));
+    }
 
 }

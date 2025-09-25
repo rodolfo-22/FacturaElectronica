@@ -74,6 +74,9 @@ public class SalesServiceImpl implements SalesService {
         return SalesMappers.ToDTOList(salesRepository.findAll());
     }
 
+
+    //   ** TODO: Terminar consultas especiales  **
+
     @Override
     public List<SalesResponse> findAllBycomercialname(Long customerId) {
         return List.of();

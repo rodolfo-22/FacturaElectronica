@@ -6,6 +6,7 @@ import org.example.adventureworks.models.dto.Request.products.ProductsCreateResq
 import org.example.adventureworks.models.dto.Request.products.ProductsUpdateRequest;
 import org.example.adventureworks.models.dto.Response.products.ProductsResponse;
 import org.example.adventureworks.models.entities.Categories;
+import org.example.adventureworks.models.entities.Products;
 import org.example.adventureworks.repository.ProductsRepository;
 import org.example.adventureworks.service.CategoryService;
 import org.example.adventureworks.service.ProductsServices;
@@ -49,7 +50,12 @@ public class ProductsServiceImpl implements ProductsServices {
 
     @Override
     public String deleteProduct(UUID productId) {
-        return "";
+        if(productsRepository.findById(productId).isEmpty())
+            throw new ProductNotFoundException("Product not found with id: " + productId);
+
+        productsRepository.deleteById(productId);
+
+        return "Product deleted with id: " + productId;
     }
 
     @Override
@@ -57,8 +63,14 @@ public class ProductsServiceImpl implements ProductsServices {
         return List.of();
     }
 
+    //Buen ejemplo de como mapper comvierte entity a dto (ProductResponse)
     @Override
-    public ProductsResponse getProduct(UUID productId) {
-        return null;
+    public ProductsResponse getProductByName(String productName) {
+        Products product = productsRepository.findByProductName(productName)
+                .orElseThrow(() -> new RuntimeException("Producto no encontrado con nombre: " + productName));
+
+        return ProductMappers.ToDTO(product);
     }
+
+
 }
