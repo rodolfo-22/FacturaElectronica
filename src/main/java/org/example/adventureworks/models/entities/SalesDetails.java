@@ -19,11 +19,9 @@ public class SalesDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
-    private String saleId;
-    private String productId;
-    private int quantity;
-    private double unitPrice;
-    private double totalPrice;
+
+    private int quantity; // Cantidad de productos
+    private double totalPrice; // Precio total (quantity * unitPrice(que viene de products))
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "sales_id") // FK en la tabla SalesDetails

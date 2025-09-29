@@ -72,5 +72,10 @@ public class ProductsServiceImpl implements ProductsServices {
         return ProductMappers.ToDTO(product);
     }
 
+    @Override
+    public Products findByIdEntity(UUID productId) {
+        return productsRepository.findById(productId).orElseThrow(()-> new ProductNotFoundException("Product not found with id: " + productId));
+    }
+
 
 }

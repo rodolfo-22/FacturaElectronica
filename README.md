@@ -19,6 +19,5 @@ CREATE DATABASE AdventureWorks;
 ```
 5. Sal del contenedor de PostgreSQL escribiendo `\q` y presionando Enter.
 6. Ejecutar la api de spring boot con el IDE de tu preferencia.
-7. Abrir un navegador web y acceder a `http://localhost:8080/swagger-ui.html` para ver la documentación de la API y probar los endpoints.
-
+7. Para provar los endpoints puedes abrir el archivo `AdventureWorks.postman_collection.json` en postman o cualquier otra aplicacion para probar los endpoint
 ![Diagrama base de datos](db_diagram.png "data base diagram")

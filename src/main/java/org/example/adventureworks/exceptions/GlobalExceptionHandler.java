@@ -72,4 +72,10 @@ public class GlobalExceptionHandler {
         return ResponseBuilderUtil.buildErrorResponse(e, HttpStatus.NOT_FOUND, e.getMessage());
     }
 
+    //Cuando no se encuentra un detalle de venta
+    @ExceptionHandler(SalesDetailsNotFoundExeception.class)
+    public ResponseEntity<ErrorResponse> handleSalesDetailsNotFound(SalesDetailsNotFoundExeception e) {
+        return ResponseBuilderUtil.buildErrorResponse(e, HttpStatus.NOT_FOUND, e.getMessage());
+    }
+
 }

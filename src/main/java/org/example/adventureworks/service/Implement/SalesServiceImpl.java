@@ -7,6 +7,7 @@ import org.example.adventureworks.models.dto.Request.sales.SalesUpdateRequest;
 import org.example.adventureworks.models.dto.Response.sales.SalesResponse;
 import org.example.adventureworks.models.entities.Customers;
 import org.example.adventureworks.models.entities.Employees;
+import org.example.adventureworks.models.entities.Sales;
 import org.example.adventureworks.repository.SalesRepository;
 import org.example.adventureworks.service.SalesService;
 import org.example.adventureworks.utils.mappers.SalesMappers;
@@ -95,5 +96,11 @@ public class SalesServiceImpl implements SalesService {
     @Override
     public List<SalesResponse> findbyCustumer(String emailCustomer) {
         return List.of();
+    }
+
+    @Override
+    public Sales findByIdEntity(UUID id) {
+        return salesRepository.findById(id)
+                .orElseThrow(() -> new SalesNotFoundException("Venta no encontrada con el id: " + id));
     }
 }

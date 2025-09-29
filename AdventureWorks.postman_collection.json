@@ -546,7 +546,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"totalPrice\": 1250.75,\n  \"saleDate\": \"2025-09-11\",\n  \"account_tags\": \"Empresa Nacional\",\n  \"operation_condition\": \"Crédito\",\n  \"types_of_payment\": \"Transferencia Bancaria\",\n  \"pament_installments\": \"3\",\n  \"treasury_date\": \"2025-09-20T00:00:00Z\",\n  \"payment_due_date\": \"2025-10-20T00:00:00Z\",\n  \"comercial_name\": \"María López\",\n  \"sales_team\": \"Equipo Zona Norte\",\n  \"journal_entry\": \"Cuentas por Cobrar\",\n  \"Proyect\": \"Construcción Residencial\",\n  \"Description\": \"Venta de materiales de construcción para proyecto habitacional\",\n  \"employee_id\":\"fda23b00-2d32-4640-8c37-54762d537343\",\n  \"customer_id\":\"d7fce4c7-7f69-4a2b-b29d-0c85b99fc42d\"\n}\n\n",
+							"raw": "{\n  \"totalPrice\": 1250.75,\n  \"saleDate\": \"2025-09-11\",\n  \"account_tags\": \"Empresa Nacional\",\n  \"operation_condition\": \"Crédito\",\n  \"types_of_payment\": \"Transferencia Bancaria\",\n  \"pament_installments\": \"3\",\n  \"treasury_date\": \"2025-09-20T00:00:00Z\",\n  \"payment_due_date\": \"2025-10-20T00:00:00Z\",\n  \"comercial_name\": \"María López\",\n  \"sales_team\": \"Equipo Zona Norte\",\n  \"journal_entry\": \"Cuentas por Cobrar\",\n  \"Proyect\": \"Construcción Residencial\",\n  \"Description\": \"Venta de materiales de construcción para proyecto habitacional\",\n  \"employee_id\":\"0d9eb02e-2c9f-4fc8-9069-584ad119a860\",\n  \"customer_id\":\"0a3d4151-fb85-48ae-9473-d295cce7f6f6\"\n}\n\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -765,7 +765,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"productName\": \"Balón de Fútbol Profesional\",\n  \"productNumber\": \"SPORT-2025-100\",\n  \"color\": \"Blanco y negro\",\n  \"price\": 45.99,\n  \"stock\": 120,\n  \"size\": \"Número 5\",\n  \"weight\": \"430 g\",\n  \"model\": \"FIFA-Approved-2025\",\n  \"description\": \"Balón de fútbol profesional certificado por la FIFA, diseñado para torneos oficiales.\",\n  \"imageUrl\": \"https://mi-tienda.com/images/balon-futbol.png\",\n  \"categoryId\": \"d3c32b04-8b20-414c-82bb-e69fb0dfd916\"\n}\n",
+							"raw": "{\n  \"productName\": \"Balón de Fútbol Profesional\",\n  \"productNumber\": \"SPORT-2025-100\",\n  \"color\": \"Blanco y negro\",\n  \"price\": 45.99,\n  \"stock\": 120,\n  \"size\": \"Número 5\",\n  \"weight\": \"430 g\",\n  \"model\": \"FIFA-Approved-2025\",\n  \"description\": \"Balón de fútbol profesional certificado por la FIFA, diseñado para torneos oficiales.\",\n  \"imageUrl\": \"https://mi-tienda.com/images/balon-futbol.png\",\n  \"categoryId\": \"d0659c6e-a5b2-4f3d-a0fa-50603ad63eb9\"\n}\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -892,6 +892,177 @@
 								"products",
 								"delete-product",
 								"e688fe3a-370f-40cd-9474-029ee3d12e8e"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "SalesDeteails",
+			"item": [
+				{
+					"name": "Add-producto-to-sale",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"quantity\": 3,\n  \"salesid\": \"f9e751b9-5df6-4f73-8ea7-0ee2727c6f45\",\n  \"productId\": \"533fefbf-f895-473f-a489-d58bed5861b4\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/sales-details/add-productsale",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"sales-details",
+								"add-productsale"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find-by-id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"productName\": \"Balón de Fútbol Profesional\",\n  \"productNumber\": \"SPORT-2025-100\",\n  \"color\": \"Blanco y negro\",\n  \"price\": 45.99,\n  \"stock\": 120,\n  \"size\": \"Número 5\",\n  \"weight\": \"430 g\",\n  \"model\": \"FIFA-Approved-2025\",\n  \"description\": \"Balón de fútbol profesional certificado por la FIFA, diseñado para torneos oficiales.\",\n  \"imageUrl\": \"https://mi-tienda.com/images/balon-futbol.png\",\n  \"categoryId\": \"d3c32b04-8b20-414c-82bb-e69fb0dfd916\"\n}\n"
+						},
+						"url": {
+							"raw": "http://localhost:8080/sales-details/find-by-id/fae8998f-7581-43b3-9198-b0ad486ef696",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"sales-details",
+								"find-by-id",
+								"fae8998f-7581-43b3-9198-b0ad486ef696"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "All-Sales-Details",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"fae8998f-7581-43b3-9198-b0ad486ef696\",\n    \"quantity\": 7,\n    \"salesid\": \"f9e751b9-5df6-4f73-8ea7-0ee2727c6f45\",\n    \"productId\": \"533fefbf-f895-473f-a489-d58bed5861b4\"\n}\n"
+						},
+						"url": {
+							"raw": "http://localhost:8080/sales-details/all-sales-details",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"sales-details",
+								"all-sales-details"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find-SaleDetails-by-sale",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"fae8998f-7581-43b3-9198-b0ad486ef696\",\n    \"quantity\": 7,\n    \"salesid\": \"f9e751b9-5df6-4f73-8ea7-0ee2727c6f45\",\n    \"productId\": \"533fefbf-f895-473f-a489-d58bed5861b4\"\n}\n"
+						},
+						"url": {
+							"raw": "http://localhost:8080/sales-details/total-sales-amount/f9e751b9-5df6-4f73-8ea7-0ee2727c6f45",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"sales-details",
+								"total-sales-amount",
+								"f9e751b9-5df6-4f73-8ea7-0ee2727c6f45"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update-detail-sale",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"fae8998f-7581-43b3-9198-b0ad486ef696\",\n    \"quantity\": 7,\n    \"salesid\": \"f9e751b9-5df6-4f73-8ea7-0ee2727c6f45\",\n    \"productId\": \"533fefbf-f895-473f-a489-d58bed5861b4\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/sales-details/update-product-sale",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"sales-details",
+								"update-product-sale"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"quantity\": 3,\n  \"salesid\": \"7878m609-0014-4545-b086-cc8722c205f1\",\n  \"productId\": \"27484b09-0014-4545-b086-cc8722c205f1\"\n}\n"
+						},
+						"url": {
+							"raw": "http://localhost:8080/sales-details/delete-product-sale/f19c1fca-aaaf-432c-a62e-8935d0dbaab4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"sales-details",
+								"delete-product-sale",
+								"f19c1fca-aaaf-432c-a62e-8935d0dbaab4"
 							]
 						}
 					},
