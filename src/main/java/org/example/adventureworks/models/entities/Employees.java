@@ -33,9 +33,9 @@ public class Employees {
     @JsonIgnore
     private List<Sales> sales;
 
-    // 🔹 Un empleado puede tener un rol
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "roles_id")
     private Role roles;
+
 }
 

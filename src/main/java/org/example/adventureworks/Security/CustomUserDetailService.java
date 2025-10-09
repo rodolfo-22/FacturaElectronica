@@ -30,8 +30,11 @@ public class CustomUserDetailService implements UserDetailsService {
 
         System.out.println("El usuario encontrado es: " + employee.getEmail() + " con rol: " + employee.getRoles().getRole()+ " y password: " + employee.getPassword());
 
+
+        String roleName = employee.getRoles().getRole(); // Ej: "ADMIN"
         // Crear autoridad a partir del campo "role"
-        GrantedAuthority authority = new SimpleGrantedAuthority(employee.getRoles().getRole());
+        SimpleGrantedAuthority authority = new SimpleGrantedAuthority("ROLE_" + roleName); // 👈 añade el prefijo "ROLE_"
+
 
         // Retornar objeto User (Spring Security) con email, contraseña y rol
         return new User(employee.getEmail(), employee.getPassword(), Collections.singleton(authority));
