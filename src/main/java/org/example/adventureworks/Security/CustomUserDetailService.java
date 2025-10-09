@@ -22,9 +22,13 @@ public class CustomUserDetailService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String userEmail) throws UsernameNotFoundException {
-// Buscar empleado por email
+
+        // Buscar empleado por email
+        //System.out.println("El email es: " + userEmail);
         Employees employee = employeeRepository.findByEmail(userEmail)
                 .orElseThrow(() -> new UsernameNotFoundException("Usuario no encontrado con email: " + userEmail));
+
+        System.out.println("El usuario encontrado es: " + employee.getEmail() + " con rol: " + employee.getRoles().getRole()+ " y password: " + employee.getPassword());
 
         // Crear autoridad a partir del campo "role"
         GrantedAuthority authority = new SimpleGrantedAuthority(employee.getRoles().getRole());
