@@ -10,6 +10,7 @@ import org.example.adventureworks.utils.ResponseBuilderUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.UUID;
@@ -21,6 +22,7 @@ public class CategoriesController {
     @Autowired
     private CategoryService categoryService;
 
+    //@PreAuthorize("hasAnyRole('ADMIN')")
     @PostMapping("/new-category")
     public ResponseEntity<GeneralResponse> createNewCategory(@Valid @RequestBody CategoriesCreateRequest category) {
 
@@ -28,11 +30,13 @@ public class CategoriesController {
 
         return ResponseBuilderUtil.buildResponse("Categoria creada", HttpStatus.CREATED,categoryResponse);
     }
+    //@PreAuthorize("hasAnyRole('ADMIN')")
     @GetMapping("/findByName/{name}")
     public ResponseEntity<GeneralResponse> getCategoryByName(@PathVariable String name) {
         Categories categoryInfo = categoryService.findByName(name);
         return ResponseBuilderUtil.buildResponse("Categoria encontrada", HttpStatus.OK, categoryInfo);
     }
+    //@PreAuthorize("hasAnyRole('ADMIN')")
     @DeleteMapping("/delete-cactegory/{id}")
     public ResponseEntity<GeneralResponse> deleteCategory(@PathVariable UUID id) {
         String deleteCategoryStatus = categoryService.deleteCategory(id);

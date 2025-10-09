@@ -1,19 +1,16 @@
 spring:
-  sql:
-    init:
-      data:
   application:
     name: AdventureWorks_api
-  mustache:
-    suffix: .html
   datasource:
     url: jdbc:postgresql://localhost:5050/adventureworks_db
     username: postgres
     password: feliequipo
   jpa:
-    hibernate:
-      ddl-auto: create
-    properties:
-      hibernate:
-        globally_quoted_identifiers: true
     show-sql: true
+    hibernate:
+      ddl-auto: update
+
+app:
+  # Importante: el JWT secret debe ser Base64 válido y suficientemente largo (32 bytes mínimo para HS256)
+  jwt-secret: 2466228b5696524a55abeb0d24574430878f7d5c6cbea8e4d5cabeebc5314685
+  jwt-expiration-time: 3600000

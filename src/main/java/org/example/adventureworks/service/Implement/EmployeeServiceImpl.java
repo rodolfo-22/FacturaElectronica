@@ -12,6 +12,8 @@ import org.example.adventureworks.repository.EmployeeRepository;
 import org.example.adventureworks.service.EmployeeService;
 import org.example.adventureworks.service.RoleService;
 import org.example.adventureworks.utils.mappers.EmployeeMappers;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -25,18 +27,26 @@ public class EmployeeServiceImpl implements EmployeeService {
     private final EmployeeRepository employeeRepository;
     private final RoleService roleService;
 
+    //@Autowired
+    //private PasswordEncoder passwordEncoder;
+
     @Override
     @Transactional // Asegura que la operación de guardado sea atómica, es decir, se completa en su totalidad o no se realiza.
     // Si ocurre algún error durante el proceso, la transacción se revertirá.
     public EmployeeResponse save(EmployeeCreateRequest request) {
 
-        if(employeeRepository.findByEmail(request.getEmail()).isPresent()){
+        if (employeeRepository.findByEmail(request.getEmail()).isPresent()) {
             throw new RuntimeException("El email ya está en uso");
         }
 
         Role role = roleService.findRoleEntityByName(request.getRole());
 
-        return EmployeeMappers.ToDTO(employeeRepository.save(EmployeeMappers.ToEntityCreate(request,role)));
+        // Aquí encriptamos la contraseña ANTES de guardarla
+        //request.setPassword(passwordEncoder.encode(request.getPassword()));
+
+        return EmployeeMappers.ToDTO(
+                employeeRepository.save(EmployeeMappers.ToEntityCreate(request, role))
+        );
     }
 
     @Override

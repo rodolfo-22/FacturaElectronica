@@ -22,12 +22,14 @@ public class RoleContoller {
     @Autowired
     private RoleService roleService;
 
-    @PostMapping("/new-role")
+    //@PreAuthorize("hasAnyRole('ADMIN')")
+    //@PostMapping("/new-role")
     public ResponseEntity<GeneralResponse> createRole(@Valid @RequestBody RoleCreateRequest roleRequest) {
         RoleResponse roleResponse = roleService.save(roleRequest);
         return ResponseBuilderUtil.buildResponse("Rol creado correctamente", HttpStatus.CREATED, roleResponse);
     }
 
+    //@PreAuthorize("hasAnyRole('ADMIN', 'USER')")
     @GetMapping("/by-name/{roleName}")
     public ResponseEntity<GeneralResponse> getRoleByName(@PathVariable String roleName) {
         RoleResponse role = roleService.findRoleByName(roleName);
@@ -35,18 +37,19 @@ public class RoleContoller {
         return ResponseBuilderUtil.buildResponse("Rol encontrado", HttpStatus.OK, role);
     }
 
+    //@PreAuthorize("hasAnyRole('ADMIN')")
     @PutMapping("/update-role")
     public  ResponseEntity<GeneralResponse> updateRole(@Valid @RequestBody RoleUpdateRequest roleUpdateRequest) {
         RoleResponse updatedRole = roleService.update(roleUpdateRequest);
         return ResponseBuilderUtil.buildResponse("Rol actualizado correctamente", HttpStatus.OK, updatedRole);
     }
-
+    //@PreAuthorize("hasAnyRole('ADMIN')")
     @DeleteMapping("/delete/{roleName}")
     public ResponseEntity<GeneralResponse> deleteRole(@PathVariable String roleName) {
         String message = roleService.delete(roleName);
         return ResponseBuilderUtil.buildResponse(message, HttpStatus.OK, null);
     }
-
+    //@PreAuthorize("hasAnyRole('ADMIN', 'USER')")
     @GetMapping("/all-roles")
     public ResponseEntity<GeneralResponse> getAllRoles() {
         List<RoleResponse> roles = roleService.findAllRoles();
