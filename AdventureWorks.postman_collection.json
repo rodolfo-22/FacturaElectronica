@@ -145,7 +145,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"name\": \"USER\",\n  \"description\": \"Otra direccion mas \"\n}\n",
+							"raw": "{\n  \"name\": \"ADMIN\",\n  \"description\": \"El que organiza al equipo en el area \"\n}\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -278,11 +278,21 @@
 				{
 					"name": "new-employee",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJtb250b01lbmRlekBnbWFpbC5jb20iLCJpYXQiOjE3NjAwNTQxMDcsImV4cCI6MTc2MDA1NzcwN30._dsAi21g58YpEGFnpIc4JARJFkmElXvjUw4X3D_V_-csI4KHfamxrw4ngYc8ad3h",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\": \"Carlos Andrés\",\n    \"surname\": \"Hernández Mejía\",\n    \"role\": \"USER\",\n    \"email\": \"carlosandres@yahoo.com\",\n    \"password\": \"UserSafe789!\",\n    \"address\": \"Barrio Abajo, Tegucigalpa\",\n    \"phone\": \"7234-5621\"\n  }",
+							"raw": "{\n    \"name\": \"Relia Feria\",\n    \"surname\": \"Menguado Arista\",\n    \"role\": \"ADMIN\",\n    \"email\": \"ariari@gmail.com\",\n    \"password\": \"holamundo\",\n    \"address\": \"Barrio Abajo, Tegucigalpa\",\n    \"phone\": \"7234-5621\"\n  }",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -387,7 +397,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/employees/delete/carlosandres@yahoo.com",
+							"raw": "http://localhost:8080/employees/delete/rosimelimeli@yahoo.com",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -396,7 +406,7 @@
 							"path": [
 								"employees",
 								"delete",
-								"carlosandres@yahoo.com"
+								"rosimelimeli@yahoo.com"
 							]
 						}
 					},
@@ -542,11 +552,26 @@
 				{
 					"name": "New-sales",
 					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"totalPrice\": 1250.75,\n  \"saleDate\": \"2025-09-11\",\n  \"account_tags\": \"Empresa Nacional\",\n  \"operation_condition\": \"Crédito\",\n  \"types_of_payment\": \"Transferencia Bancaria\",\n  \"pament_installments\": \"3\",\n  \"treasury_date\": \"2025-09-20T00:00:00Z\",\n  \"payment_due_date\": \"2025-10-20T00:00:00Z\",\n  \"comercial_name\": \"María López\",\n  \"sales_team\": \"Equipo Zona Norte\",\n  \"journal_entry\": \"Cuentas por Cobrar\",\n  \"Proyect\": \"Construcción Residencial\",\n  \"Description\": \"Venta de materiales de construcción para proyecto habitacional\",\n  \"employee_id\":\"0d9eb02e-2c9f-4fc8-9069-584ad119a860\",\n  \"customer_id\":\"0a3d4151-fb85-48ae-9473-d295cce7f6f6\"\n}\n\n",
+							"raw": "{\n  \"totalPrice\": 1250.75,\n  \"saleDate\": \"2025-09-11\",\n  \"account_tags\": \"Empresa Nacional\",\n  \"operation_condition\": \"Crédito\",\n  \"types_of_payment\": \"Transferencia Bancaria\",\n  \"pament_installments\": \"3\",\n  \"treasury_date\": \"2025-09-20T00:00:00Z\",\n  \"payment_due_date\": \"2025-10-20T00:00:00Z\",\n  \"comercial_name\": \"María López\",\n  \"sales_team\": \"Equipo Zona Norte\",\n  \"journal_entry\": \"Cuentas por Cobrar\",\n  \"Proyect\": \"Construcción Residencial\",\n  \"Description\": \"Venta de materiales de construcción para proyecto habitacional\",\n  \"employee_id\":\"116c9946-d2a3-4ffc-9826-4aa908bcdd65\",\n  \"customer_id\":\"c9d3b1b7-9dd1-42b9-a03c-8f58c0a2a26c\"\n}\n\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1069,6 +1094,36 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"email\": \"montoMendez@gmail.com\",\n  \"password\": \"$2a$10$BeuzsNSfGSZNty59pbjoC.DQ5CAr0lsVBHXhDDjvGnXGcwqQ8Vnj6\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
