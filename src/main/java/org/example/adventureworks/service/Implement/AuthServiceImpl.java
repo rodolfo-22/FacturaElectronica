@@ -16,30 +16,16 @@ import org.springframework.stereotype.Service;
 @Service
 @AllArgsConstructor
 public class AuthServiceImpl implements AuthService {
-
-    AuthenticationManager authenticationManager;
-    JwtTokenProvider jwtTokenProvider;
+    private final AuthenticationManager authenticationManager;
+    private final JwtTokenProvider jwtTokenProvider;
 
     @Override
     public String login(LoginRequest loginRequest) {
-
-        System.out.println("Login request received for email: " + loginRequest.getEmail() + " and password: " + loginRequest.getPassword());
-
-        // Authenticates the user using the provided username and password
         Authentication authentication = authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(
-                        loginRequest.getEmail(), // User's email
-                        loginRequest.getPassword()  // User's password
-                )
+                new UsernamePasswordAuthenticationToken(loginRequest.getEmail(), loginRequest.getPassword())
         );
-
-        // Sets the authentication in Spring Security's context
         SecurityContextHolder.getContext().setAuthentication(authentication);
-
-        // Generates a JWT token for the authenticated user
-        String token = jwtTokenProvider.generateToken(authentication);
-
-        // Returns the generated token
-        return token;
+        return jwtTokenProvider.generateToken(authentication);
     }
 }
+

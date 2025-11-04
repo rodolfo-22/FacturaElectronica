@@ -26,6 +26,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     private final EmployeeRepository employeeRepository;
     private final RoleService roleService;
+    private final PasswordEncoder passwordEncoder;
 
     //@Autowired
     //private PasswordEncoder passwordEncoder;
@@ -34,20 +35,15 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Transactional // Asegura que la operación de guardado sea atómica, es decir, se completa en su totalidad o no se realiza.
     // Si ocurre algún error durante el proceso, la transacción se revertirá.
     public EmployeeResponse save(EmployeeCreateRequest request) {
-
         if (employeeRepository.findByEmail(request.getEmail()).isPresent()) {
             throw new RuntimeException("El email ya está en uso");
         }
-
         Role role = roleService.findRoleEntityByName(request.getRole());
-
-        // Aquí encriptamos la contraseña ANTES de guardarla
-        //request.setPassword(passwordEncoder.encode(request.getPassword()));
-
-        return EmployeeMappers.ToDTO(
-                employeeRepository.save(EmployeeMappers.ToEntityCreate(request, role))
-        );
+        // encriptar antes de guardar
+        request.setPassword(passwordEncoder.encode(request.getPassword()));
+        return EmployeeMappers.ToDTO(employeeRepository.save(EmployeeMappers.ToEntityCreate(request, role)));
     }
+
 
     @Override
     public EmployeeResponse getByEmail(String email) {

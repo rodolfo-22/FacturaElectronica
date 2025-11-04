@@ -17,27 +17,19 @@ import java.util.Collections;
 @Service
 @AllArgsConstructor
 public class CustomUserDetailService implements UserDetailsService {
-
     private final EmployeeRepository employeeRepository;
 
     @Override
-    public UserDetails loadUserByUsername(String userEmail) throws UsernameNotFoundException {
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+        Employees emp = employeeRepository.findByEmail(email)
+                .orElseThrow(() -> new UsernameNotFoundException("No encontrado: " + email));
 
-        // Buscar empleado por email
-        //System.out.println("El email es: " + userEmail);
-        Employees employee = employeeRepository.findByEmail(userEmail)
-                .orElseThrow(() -> new UsernameNotFoundException("Usuario no encontrado con email: " + userEmail));
-
-        System.out.println("El usuario encontrado es: " + employee.getEmail() + " con rol: " + employee.getRoles().getRole()+ " y password: " + employee.getPassword());
-
-
-        String roleName = employee.getRoles().getRole(); // Ej: "ADMIN"
-        // Crear autoridad a partir del campo "role"
-        SimpleGrantedAuthority authority = new SimpleGrantedAuthority("ROLE_" + roleName); // 👈 añade el prefijo "ROLE_"
-
-
-        // Retornar objeto User (Spring Security) con email, contraseña y rol
-        return new User(employee.getEmail(), employee.getPassword(), Collections.singleton(authority));
-
+        SimpleGrantedAuthority auth = new SimpleGrantedAuthority("ROLE_" + emp.getRoles().getRole());
+        return User.builder()
+                .username(emp.getEmail())
+                .password(emp.getPassword())
+                .authorities(Collections.singleton(auth))
+                .build();
     }
 }
+
