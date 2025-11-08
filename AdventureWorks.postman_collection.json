@@ -283,7 +283,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJtb250b01lbmRlekBnbWFpbC5jb20iLCJpYXQiOjE3NjAwNTQxMDcsImV4cCI6MTc2MDA1NzcwN30._dsAi21g58YpEGFnpIc4JARJFkmElXvjUw4X3D_V_-csI4KHfamxrw4ngYc8ad3h",
+									"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0QGV4YW1wbGUuY29tIiwiaWF0IjoxNzYyMjkxNjY1LCJleHAiOjE3NjIyOTUyNjV9.S7MVBR2Dt7RoZpS3981OHw2fGXgAaRDakH0tO6N8BrHRVqvNk4uIMhNrsO3OzzPR",
 									"type": "string"
 								}
 							]
@@ -292,7 +292,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\": \"Relia Feria\",\n    \"surname\": \"Menguado Arista\",\n    \"role\": \"ADMIN\",\n    \"email\": \"ariari@gmail.com\",\n    \"password\": \"holamundo\",\n    \"address\": \"Barrio Abajo, Tegucigalpa\",\n    \"phone\": \"7234-5621\"\n  }",
+							"raw": "{\n  \"name\": \"Test2\",\n  \"surname\": \"Test2\",\n  \"role\": \"ADMIN\",\n  \"email\": \"test2@example.com\",\n  \"password\": \"holamundo\",\n  \"address\": \"Calle Arce, New York\",\n  \"phone\": \"7479-5834\"\n}\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1102,7 +1102,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"email\": \"montoMendez@gmail.com\",\n  \"password\": \"$2a$10$BeuzsNSfGSZNty59pbjoC.DQ5CAr0lsVBHXhDDjvGnXGcwqQ8Vnj6\"\n}",
+					"raw": "{\n  \"email\": \"admin@system.com\",\n  \"password\": \"holamundo\"\n}\n",
 					"options": {
 						"raw": {
 							"language": "json"

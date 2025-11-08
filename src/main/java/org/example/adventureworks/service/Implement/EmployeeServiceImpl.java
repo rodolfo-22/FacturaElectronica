@@ -39,8 +39,11 @@ public class EmployeeServiceImpl implements EmployeeService {
             throw new RuntimeException("El email ya está en uso");
         }
         Role role = roleService.findRoleEntityByName(request.getRole());
+
+
         // encriptar antes de guardar
         request.setPassword(passwordEncoder.encode(request.getPassword()));
+        System.out.println("LA CONTRASEÑA ENCRIPTADA ES: " + request.getPassword());
         return EmployeeMappers.ToDTO(employeeRepository.save(EmployeeMappers.ToEntityCreate(request, role)));
     }
 

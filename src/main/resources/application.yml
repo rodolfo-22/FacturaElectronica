@@ -8,7 +8,11 @@ spring:
   jpa:
     show-sql: true
     hibernate:
-      ddl-auto: update
+      ddl-auto: none
+
+  liquibase:
+    enabled: true
+    change-log: classpath:changelog/db.changelog-master.yml
 
 app:
   # Importante: el JWT secret debe ser Base64 válido y suficientemente largo (32 bytes mínimo para HS256)
