@@ -25,7 +25,7 @@ CREATE DATABASE AdventureWorks;
 ![Diagrama base de datos](db_diagram.png "data base diagram")
 
 > [!IMPORTANT]
-> > Credenciales para el usuario administrador y poder getionar los productos y los demas recursos:
+Credenciales para el usuario administrador y poder getionar los productos y los demas recursos:
 > ```json
 > {
 > "email": "admin@system.com",
